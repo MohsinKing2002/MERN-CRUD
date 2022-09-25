@@ -1,0 +1,269 @@
+
+/***************************************** google font ****************************************/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+/***************************************** css reset and body ****************************************/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-image: url('https://images.freecreatives.com/wp-content/uploads/2016/04/Solid-Black-Website-Background.jpg');
+    background-size: 100%;
+}
+
+.center{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/***************************************** navigation bar ****************************************/
+
+.nav-link{
+    padding: 0 25px !important;
+}
+
+.navbar-collapse{
+    margin-left: 2rem;
+}
+
+.title{
+    text-align: center;
+    color: indigo;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+/***************************************** card & form component ****************************************/
+
+.card{
+    padding: 12px;
+}
+
+.card form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 25vw;
+}
+
+input, textarea{
+    width: 90%;
+    margin: 15px 0 !important;
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightblue;
+}
+
+textarea{
+    resize: none !important;
+    height: 15vh;
+}
+textarea::-webkit-scrollbar,
+.users::-webkit-scrollbar
+{
+    width: 5px;
+}
+
+textarea::-webkit-scrollbar-thumb,
+.users::-webkit-scrollbar-thumb
+{
+    background-color: lightblue;
+    border-radius: 8px;
+}
+
+
+/***************************************** profile component ****************************************/
+
+.profile{
+    flex-direction: row !important;
+    justify-content: space-around;
+    width: 70%;
+    padding: 20px;
+}
+
+.profile_user:hover {
+    background-color: white;
+}
+
+.user_icon {
+    font-size: 2rem;
+    color: midnightblue;
+    margin-right: 1rem;
+}
+
+.user_controll, .user_details
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn{
+    color: azure !important;
+    width: 35%;
+    margin: 20px 0;
+}
+
+.link{
+    text-decoration: none;
+    color: azure;
+}
+.link:hover{
+    color: azure;
+}
+
+.para{
+    color: midnightblue;
+    margin: 12px 0 !important;
+}
+
+
+
+/***************************************** home componets ****************************************/
+.home_greet{
+    width: 50%;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.greet{
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 15px 0;
+}
+
+.home_users{
+    width: 50%;
+}
+
+.users{
+    border: 1px solid lightblue;
+    padding: 5px 15px;
+    width: 50%;
+    margin: auto;
+    height: 46vh;
+    overflow-y: auto;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 8px;
+    transition: all 0.4s ease-in-out;
+}
+
+.user:hover{
+    background-color: #add8e652;
+}
+
+.user img{
+    height: 5.4vh;
+    border-radius: 100%;
+    margin-right: 1rem;
+}
+
+.user h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: indigo;
+    letter-spacing: 2px;
+}
+
+.delete_icon{
+    margin-left: 1.6rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: red;
+}
+.delete_icon:hover{
+    color: orange;
+}
+
+/***************************************** search component ****************************************/
+.search_users{
+    width: 80%;
+    height: 20vh;
+}
+
+
+/***************************************** making responsive ****************************************/
+@media screen and (min-width: 1100px) {
+    .btn{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .nav-link {
+        padding: 10px 20px !important;
+    }
+
+    .navbar-collapse {
+        margin-left: auto;
+    }
+
+    .user h3{
+        font-size: 18px;
+    }
+    .user_icon{
+        font-size: 28px;
+    }
+
+    .btn{
+        width: 70%;
+        margin: 10px 0;
+    }
+    .profile{
+        flex-direction: column !important;
+        width: 90% !important;
+    }
+    .home_greet, .home_users{
+        width: 95%;
+    }
+    .users{
+        width: 100%;
+        padding: 5px;
+    }
+
+    .user img{
+        margin-right: 15px;
+        height: 6vh;
+    }
+    .delete_icon{
+        margin-left: 12px;
+    }
+
+    .card{
+        width: 90%;
+    }
+    .card form{
+        width: 100%;
+    }
+    input,
+    textarea {
+        margin: 8px 0 !important;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .aboutpage h3{
+        line-height: 1.6;
+    }
+    .aboutpage img{
+        width: 90% !important;
+    }
+}
