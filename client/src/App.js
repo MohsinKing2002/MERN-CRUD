@@ -13,18 +13,19 @@ import Register from "./components/Register";
 import Update from "./components/Update";
 import ErrorPage from "./components/Utils/ErrorPage";
 import Home from "./components/Home";
+import ChatHome from "./components/ChatHome";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./Actions/User";
 import Search from "./components/Search";
 
 const App = () => {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(loadUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(loadUser());
+  // }, [dispatch]);
 
-  const { isAuthenticated } = useSelector((state) => state.user);
+  // const { isAuthenticated } = useSelector((state) => state.user);
 
   return (
     <>
@@ -32,7 +33,9 @@ const App = () => {
 
       <div className="center">
         <Routes>
-          <Route path="/" element={isAuthenticated ? <Home /> : <Login />} />
+          <Route path="/" element={<ChatHome />} />
+          <Route path="/chat" element={<Message />} />
+          {/*<Route path="/" element={isAuthenticated ? <Home /> : <Login />} />
           <Route path="/about" element={<AboutPage />} />
           <Route
             path="/search"
@@ -56,7 +59,7 @@ const App = () => {
             element={isAuthenticated ? <Contact /> : <Login />}
           />
 
-          <Route path="*" element={<ErrorPage />} />
+  <Route path="*" element={<ErrorPage />} />*/}
         </Routes>
 
         <ToastContainer
