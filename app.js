@@ -23,6 +23,45 @@ cloudinary.config({
 //accessing routes
 app.use(require("./routes/userRoute"));
 
+app.post("/chat/get", async (req, res) => {
+  const { id } = req.body;
+
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const client = require("twilio")(accountSid, authToken);
+
+  const conversation = await client.conversations.v1.conversations(id).fetch();
+
+  res.status(200).json({
+    success: true,
+    conversation,
+  });
+});
+
+app.post("/chat/token", (req, res) => {
+  const { identity } = req.body;
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const apiKey = process.env.TWILIO_API_KEY;
+  const apiSecret = process.env.TWILIO_API_SECRET;
+  const serviceSid = process.env.TWILIO_SERVICE_SID;
+
+  const AccessToken = require("twilio").jwt.AccessToken;
+  const ChatGrant = AccessToken.ChatGrant;
+
+  const chatGrant = new ChatGrant({
+    serviceSid: serviceSid,
+  });
+  const token = new AccessToken(accountSid, apiKey, apiSecret, {
+    identity: identity,
+  });
+
+  token.addGrant(chatGrant);
+  res.status(200).json({
+    success: true,
+    token: token.toJwt(),
+  });
+});
+
 //connectin database
 connectDB();
 

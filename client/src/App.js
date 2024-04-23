@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AboutPage from "./components/AboutPage";
 import Contact from "./components/Contact";
+import Message from "./components/Message";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
@@ -45,6 +46,10 @@ const App = () => {
           <Route
             path="/account"
             element={isAuthenticated ? <Profile /> : <Login />}
+          />
+          <Route
+            path="/message"
+            element={isAuthenticated ? <Message /> : <Login />}
           />
           <Route
             path="/contact"
